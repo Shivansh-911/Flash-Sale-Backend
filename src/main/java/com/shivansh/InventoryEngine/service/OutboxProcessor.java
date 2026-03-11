@@ -23,13 +23,22 @@ public class OutboxProcessor {
     
 
     @Transactional
-    //@Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 1000)
     public void process() {
 
 
         System.out.println("START OF THE OUTBOX PROCESSOR");
 
+        // Right Now i only have one type of event -> Payment processing, so i am directly converting the payload to orderId, 
+        // but in real world we will have multiple types of events and we can use a common format for payload like JSON with a field eventType 
+        // to identify the type of event and then process accordingly. 
+         
+        // Also i have only one worker thread for processing the outbox event but in real worls there can be many workers so 
+        // to avoid race conditions we can do pessimistic locking on the outbox event table by locking a certain number of rows to one worker 
+        // so that they are skipped by other workers
         var events = outboxRepository.findTop50ByProcessedFalseOrderByCreatedAtAsc();
+
+        System.out.println("Outbox worker running. Events: " + events.size());
 
         for (var event : events) {
 
@@ -60,18 +69,16 @@ public class OutboxProcessor {
 
     private void handleFailure(UUID orderId) {
 
-    var order = orderRepository.findById(orderId).orElseThrow();
+        var order = orderRepository.findById(orderId).orElseThrow();
 
-    // idempotency safety
-    if (order.getStatus() == OrderStatus.FAILED) {
-        return;
+        // idempotency safety
+        if (order.getStatus() == OrderStatus.FAILED) {
+            return;
+        }
+
+        order.setStatus(OrderStatus.FAILED);
+        var product = productRepository.findById(order.getProductId()).orElseThrow();
+        product.setStock(product.getStock() + order.getQuantity());
     }
-
-    order.setStatus(OrderStatus.FAILED);
-
-    var product = productRepository.findById(order.getProductId()).orElseThrow();
-
-    product.setStock(product.getStock() + order.getQuantity());
-}
 }
 

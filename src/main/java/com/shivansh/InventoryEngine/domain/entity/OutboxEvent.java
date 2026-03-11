@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="OutboxTable")
+@Table(name="outbox_event")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -41,10 +41,10 @@ public class OutboxEvent {
     
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "id", nullable = false)
     private UUID id;
     //tells consumer which domain this table belong to 
-    @Column(name = "order")
+    @Column(name = "orders")
     private String aggregateType;
 
     @Column(name = "order_id")
