@@ -44,6 +44,12 @@ public class Order {
     @Column(name="order_status")
     private OrderStatus status;
 
+
+    //Idempotency means:
+    //Multiple identical requests produce the same result
+    //If client sends the same request multiple times, it should not cause unintended side effects or duplicate processing.
+    //Happens due to network issues, double clicks, client retries etc.
+    //Use Redis instead of DB as it is fast and atomic 
     @Column(name="idempotency_key")
     private String idempotencyKey;
 

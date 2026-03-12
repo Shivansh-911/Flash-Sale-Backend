@@ -11,3 +11,9 @@ services:
       POSTGRES_DB: inventory
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+
+  redis:
+    image: redis:latest
+    container_name: flashsale-redis
+    ports:
+      - "6379:6379"
