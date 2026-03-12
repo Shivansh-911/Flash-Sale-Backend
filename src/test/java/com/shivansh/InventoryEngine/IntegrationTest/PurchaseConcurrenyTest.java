@@ -32,52 +32,53 @@ public class PurchaseConcurrenyTest {
     @Test
     public void ConcurrencyTest_ShouldNotOverflow() throws InterruptedException {
 
-        // System.out.println("START OF TEST");
+        System.out.println("START OF TEST");
 
-        // UUID productId = productService.createProduct("Maggie Noddles", 10, 10.5);
+        UUID productId = productService.createProduct("Maggie Noddles", 10, 10.5);
 
-        // System.out.println("Product ID = "+ productId);
+        System.out.println("Product ID = "+ productId);
 
 
-        // int threads = 50;
+        int threads = 50;
 
-        // ExecutorService executor = Executors.newFixedThreadPool(threads);
-        // CountDownLatch latch = new CountDownLatch(threads);
+        ExecutorService executor = Executors.newFixedThreadPool(threads);
+        CountDownLatch latch = new CountDownLatch(threads);
 
-        // for(int i=0;i<threads;i++) {
+        for(int i=0;i<threads;i++) {
             
-        //     int idx = i;
+            int idx = i;
 
 
-        //     // Execution.submit will start the implementation of all the threads and 
-        //     // when a thread is complete it will decrease the latch value and .await will block the code till latch becomes 0
-        //     executor.submit(() -> {
-        //         try {
+            // Execution.submit will start the implementation of all the threads and 
+            // when a thread is complete it will decrease the latch value and .await will block the code till latch becomes 0
+            executor.submit(() -> {
+                try {
                     
-        //             purchaseService.purchase(
-        //                 UUID.randomUUID(), 
-        //                 productId, 
-        //                 1,
-        //                 "key-"+idx
-        //             );
-        //         } catch (Exception ignored) {    
-        //         } finally {
-        //             latch.countDown();
-        //         }
-        //     });
-        // }
+                    purchaseService.purchase(
+                        UUID.randomUUID(), 
+                        productId, 
+                        1,
+                        "key-"+idx
+                    );
+                } catch (Exception ignored) {    
+                } finally {
+                    latch.countDown();
+                }
+            });
+        }
 
-        // latch.await();
+        latch.await();
+        executor.shutdown();
 
-        // var product = productRepository.findById(productId).orElseThrow();
+        var product = productRepository.findById(productId).orElseThrow();
 
-        // System.out.println("Final Stock = " + product.getStock());
+        System.out.println("Final Stock = " + product.getStock());
 
-        // long orderCount = orderRepository.countByProductId(productId);
+        long orderCount = orderRepository.countByProductId(productId);
 
-        // System.out.println("Order Count = " + orderCount);
+        System.out.println("Order Count = " + orderCount);
 
-        // System.out.println("END OF TEST");
+        System.out.println("END OF TEST");
 
     }
 

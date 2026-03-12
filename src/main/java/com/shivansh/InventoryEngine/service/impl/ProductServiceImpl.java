@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.shivansh.InventoryEngine.domain.entity.Product;
 import com.shivansh.InventoryEngine.repository.ProductRepository;
+import com.shivansh.InventoryEngine.service.InventoryCacheService;
 import com.shivansh.InventoryEngine.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository productRepository;
-
+    private final InventoryCacheService inventoryCacheService;
 
 
     @Override
@@ -32,6 +33,9 @@ public class ProductServiceImpl implements ProductService{
                                     .build();
         
         productRepository.save(newProduct);
+
+        // Initialize stock in Redis
+        inventoryCacheService.initializeStock(newProduct.getId(), stock);
         
         return newProduct.getId();
 

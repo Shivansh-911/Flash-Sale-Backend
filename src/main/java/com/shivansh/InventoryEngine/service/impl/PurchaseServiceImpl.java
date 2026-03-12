@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.shivansh.InventoryEngine.service.IdempotencyService;
+import com.shivansh.InventoryEngine.service.InventoryCacheService;
 import com.shivansh.InventoryEngine.service.PurchaseService;
 import com.shivansh.InventoryEngine.service.RateLimiterService;
 
@@ -26,6 +27,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     final private PurchaseTransaction purchaseTransaction;
     final private IdempotencyService idempotencyService;
     final private RateLimiterService rateLimiterService;
+    final private InventoryCacheService inventoryCacheService;
 
     @Override
     public UUID purchase(UUID userId, UUID productId, int qty, String idemKey) {
@@ -37,6 +39,21 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         //----------------------
         
+
+        //----------------------
+        // Hot Inventory Protection
+        // Try to update stock in Redis first, if successful then proceed to update stock in DB, otherwise throw out of stock exception
+        // In Redis decrement stock for each order request , if less than 0 or no key found do not go further 
+        boolean stockUpdated = inventoryCacheService.tryUpdateStock(productId, qty);
+        if(!stockUpdated) {
+            throw new RuntimeException("Product is out of stock ( REDIS )");
+        }
+
+        //----------------------
+
+
+
+
         
         // ---------------------
         // Idempotency (phase 3) -> Redis based distributed lock with TTL to prevent memory leak in case of failure of the service after acquiring the lock
@@ -64,36 +81,42 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         int attempt = 0;
         int maxAttempts = 5;
-        
-        while(true) {
+        try {
 
-            try {
+            while(true) {
+
+                try {
+                    
+                    UUID orderId = purchaseTransaction.purchaseTx(userId, productId, qty, idemKey);
+
+                    // After successful processing of the request, set the key with the orderId as value and TTL to prevent memory leak in Redis
+                    idempotencyService.copmplete(redisKey, orderId);
+                    System.out.println("Purchase successful, orderId = " + orderId+ ", redisKey = " + redisKey);
+                    return orderId;
+
                 
-                UUID orderId = purchaseTransaction.purchaseTx(userId, productId, qty, idemKey);
+                } catch (Exception ex) {
 
-                // After successful processing of the request, set the key with the orderId as value and TTL to prevent memory leak in Redis
-                idempotencyService.copmplete(redisKey, orderId);
-                System.out.println("Purchase successful, orderId = " + orderId+ ", redisKey = " + redisKey);
-                return orderId;
+                    attempt++;
 
-            
-            } catch (Exception ex) {
+                    System.out.println("OPTIMISTIC LOCK — retry attempt = " + attempt);
+                    System.out.println("EXCEPTION = " + ex.getClass().getName());
 
-                attempt++;
+                    if(attempt >= maxAttempts) {
 
-                System.out.println("OPTIMISTIC LOCK — retry attempt = " + attempt);
-                System.out.println("EXCEPTION = " + ex.getClass().getName());
+                        idempotencyService.delete(redisKey);
+                        throw ex;
+                    }
 
-                if(attempt >= maxAttempts) {
-
-                    idempotencyService.delete(redisKey);
-                    throw ex;
                 }
-
             }
 
-
+        } catch (Exception ex) {
+            // Restore stock in Redis in case of any failure
+            inventoryCacheService.restoreStock(productId, qty);
+            throw ex;
         }
+        
 
         //return purchaseTransaction.purchaseTx(userId, productId, qty, idemKey);
     }
