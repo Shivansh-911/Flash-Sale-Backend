@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 // Pessimistic locking assumes conflicts are likely, locking data upon read to prevent others from modifying it, 
 // ensuring data integrity in high-contention, critical-operation systems
 
+// Apart from this implemetation we can also add a queue based system where the orders are added to a queue and a background worker process the orders one by one
 
 
 @Service
@@ -140,6 +141,10 @@ public class PurchaseServiceImpl implements PurchaseService {
         //return purchaseTransaction.purchaseTx(userId, productId, qty, idemKey);
     }
 
+
+
+    // In this locking all the orders will be created successfully and redis stock will become 0 
+    // but the orders will fail due to its payment failure
     @Override
     public UUID purchasePessimistic(UUID userId, UUID productId, int qty, String idemKey) {
         

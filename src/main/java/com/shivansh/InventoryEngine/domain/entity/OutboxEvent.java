@@ -23,6 +23,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,7 +32,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="outbox_event")
+@Table(
+    name="outbox_event",
+    indexes = {
+        @Index(name = "idx_outbox_processed_created_at", columnList = "flag, created_at")
+    }
+)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -61,5 +67,6 @@ public class OutboxEvent {
     @Column(name = "flag")
     private boolean processed;
 
+    @Column(name = "created_at")
     private Instant createdAt;
 }

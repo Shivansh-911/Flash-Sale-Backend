@@ -57,12 +57,14 @@ public class PurchaseAsyncFlowTest {
 
         log.info("PRODUCT CREATED | productId={} | initialStock={}", productId, 10);
 
-        int threads = 30;
+        int threads = 100;
 
         log.info("STARTING CONCURRENCY TEST | threads={}", threads);
 
         ExecutorService executor = Executors.newFixedThreadPool(threads);
         CountDownLatch latch = new CountDownLatch(threads);
+
+        long startTime = System.currentTimeMillis();
 
         for(int i=0;i<threads;i++) {
             int idx = i;
@@ -74,6 +76,7 @@ public class PurchaseAsyncFlowTest {
                 try {
                     
                     UUID orderId = purchaseService.purchasePessimistic(UUID.randomUUID(), productId, 1, "key-"+idx);
+                    //UUID orderId = purchaseService.purchase(UUID.randomUUID(), productId, 1, "key-"+idx);
 
                     log.info("PURCHASE SUCCESS | idemKey={} | orderId={}", "key-"+idx, orderId);
 
@@ -92,6 +95,8 @@ public class PurchaseAsyncFlowTest {
         latch.await();
 
         executor.shutdown();
+
+        long endTime = System.currentTimeMillis();
 
         Thread.sleep(5000);
 
@@ -114,11 +119,13 @@ public class PurchaseAsyncFlowTest {
         int expected_stock = 10 - completed;
 
         log.info("===== ORDER SUMMARY =====");
-        log.info("Completed orders = {}", completed);
-        log.info("Failed orders = {}", failed);
-        log.info("Pending orders = {}", pending);
+        log.info("Orders Created = {}", orders.size());
+        log.info("Completed orders payment successful = {}", completed);
+        log.info("Failed orders payment unsuccessful = {}", failed);
+        log.info("Pending orders payment pending = {}", pending);
         log.info("Final stock = {}", final_stock);
         log.info("Expected stock = {}", expected_stock);
+        log.info("Total time taken = {} ms", (endTime - startTime));
 
         assertThat(final_stock).isEqualTo(expected_stock);
 

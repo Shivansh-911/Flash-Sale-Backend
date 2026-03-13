@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,11 @@ import lombok.Setter;
 @Entity
 @Table(
     name="orders",
-    uniqueConstraints = @UniqueConstraint(columnNames = "idempotencyKey")
+    uniqueConstraints = @UniqueConstraint(columnNames = "idempotencyKey"),
+    indexes = {
+        @Index(name = "idx_order_product_id", columnList = "productId"),
+        @Index(name = "index_order_status_created_at", columnList = "orderStatus, createdAt")
+    }
 )
 @Getter
 @Setter
@@ -50,7 +55,7 @@ public class Order {
     //If client sends the same request multiple times, it should not cause unintended side effects or duplicate processing.
     //Happens due to network issues, double clicks, client retries etc.
     //Use Redis instead of DB as it is fast and atomic 
-    @Column(name="idempotency_key")
+    @Column(name="idempotency_key", unique = true)
     private String idempotencyKey;
 
     @Column(name="created_at")
