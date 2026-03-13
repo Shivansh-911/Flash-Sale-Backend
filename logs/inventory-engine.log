@@ -1,0 +1,786 @@
+2026-03-13 05:08:16 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-03-13 05:08:16 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Starting PurchaseAsyncFlowTest using Java 21.0.10 with PID 95443 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:08:16 [main] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:08:16 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:08:18 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:18 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1873 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:20 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:08:21 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:08:21 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-13 05:08:22 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:08:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-13 05:08:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7af56b26
+2026-03-13 05:08:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-13 05:08:23 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:08:26 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:08:26 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:27 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-13 05:08:28 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:08:30 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Started PurchaseAsyncFlowTest in 13.993 seconds (process running for 18.375)
+2026-03-13 05:08:32 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - ===== TEST START =====
+2026-03-13 05:08:33 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PRODUCT CREATED productId=295d3422-b451-444c-8b2f-bf7f1cc1eb94 initialStock=10
+2026-03-13 05:08:33 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - STARTING CONCURRENCY TEST threads=30
+2026-03-13 05:08:33 [pool-4-thread-2] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-1
+2026-03-13 05:08:33 [pool-4-thread-1] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-0
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-0 | user=7f27391b-0a34-49d5-b578-345de2146a5b | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-1 | user=d3c2805b-bc4e-461d-98c4-c05496727e01 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-3] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-2
+2026-03-13 05:08:33 [pool-4-thread-4] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-3
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-2 | user=174fe856-a9ed-4d05-b33b-2ad5617aeb5f | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-3 | user=acd0b1fb-20df-4fb9-948e-27176667066b | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-5] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-4
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-4 | user=23b2d027-a5ce-4311-9639-0bb94f0c63a4 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-6] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-5
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-5 | user=54b3d05c-e3cc-4601-9165-149d40272d5e | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-7] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-6
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-6 | user=943e99c8-0bcd-4d85-bdde-dfe71852ffd6 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-8] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-7
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-7 | user=b302eacc-b7b3-43c5-b9bd-95ecbe3dc30c | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-9] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-8
+2026-03-13 05:08:33 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-8 | user=e7b3fda8-4bd5-440b-b171-671101ea642e | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-11] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-10
+2026-03-13 05:08:33 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-10 | user=1300de81-0037-4ebc-9d93-b916445096d5 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-10] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-9
+2026-03-13 05:08:33 [pool-4-thread-12] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-11
+2026-03-13 05:08:33 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-11 | user=cc7a4ed5-6326-4b43-a0be-a3ba5eaa3a08 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-14] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-13
+2026-03-13 05:08:33 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-13 | user=3950517a-68ab-40bf-82b6-1ba88e12a551 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-9 | user=7a19cef9-e7e8-42bf-ae54-a43f2256975b | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-15] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-14
+2026-03-13 05:08:33 [pool-4-thread-13] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-12
+2026-03-13 05:08:33 [pool-4-thread-17] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-16
+2026-03-13 05:08:33 [pool-4-thread-18] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-17
+2026-03-13 05:08:33 [pool-4-thread-16] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-15
+2026-03-13 05:08:33 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-12 | user=6162e240-118c-458b-a342-b52abd4a4c6e | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-16 | user=c81789ed-4843-492a-b9fd-b691875be966 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-14 | user=4c90a59e-c419-4ebd-844a-b0d15c079bb0 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-17 | user=cf9a3e02-39e2-4719-8b2c-62277a1624a9 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-15 | user=d4eefa9f-26c6-48ac-9c85-0b2479377516 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-19] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-18
+2026-03-13 05:08:33 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-18 | user=c6f36c3e-fcde-4172-b16c-85f9c62af44c | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-20] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-19
+2026-03-13 05:08:33 [pool-4-thread-21] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-20
+2026-03-13 05:08:33 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-19 | user=6e0cff69-eb75-4d50-9d4d-dcc39a34b4b4 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-20 | user=373e78a2-8ac4-40f4-acb9-6dbec4d4818b | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-24] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-23
+2026-03-13 05:08:33 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-23 | user=954a1608-6325-4bba-a0b9-1d4f9d3d4a26 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-27] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-26
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-26 | user=9a72fa1a-00ba-4a32-9d82-9ad838b6fda6 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-22] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-21
+2026-03-13 05:08:33 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-21 | user=11bba67c-11ac-41f9-95b9-622addb856ac | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-25] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-24
+2026-03-13 05:08:33 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-24 | user=a0f98131-5758-495a-ba93-d84e755eddc8 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-23] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-22
+2026-03-13 05:08:33 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-22 | user=d43d096d-e8dd-417b-912c-9d97344f3e1f | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-26] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-25
+2026-03-13 05:08:33 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-25 | user=687cae65-7db0-40a8-b4df-4a5b57aa91a8 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-28] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-27
+2026-03-13 05:08:33 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-27 | user=6c722150-8c36-4bcc-b6a9-f41c938500fe | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-29] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-28
+2026-03-13 05:08:33 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-28 | user=42b4e1af-cfb5-4445-89dc-b895c59ced1c | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-30] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START idemKey=key-29
+2026-03-13 05:08:33 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-29 | user=4c4a9ed2-7c99-45b4-b644-f572b5282a50 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94 | qty=1
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-1 | user=d3c2805b-bc4e-461d-98c4-c05496727e01
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-2 | user=174fe856-a9ed-4d05-b33b-2ad5617aeb5f
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-4 | user=23b2d027-a5ce-4311-9639-0bb94f0c63a4
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-6 | user=943e99c8-0bcd-4d85-bdde-dfe71852ffd6
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-5 | user=54b3d05c-e3cc-4601-9165-149d40272d5e
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-3 | user=acd0b1fb-20df-4fb9-948e-27176667066b
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-7 | user=b302eacc-b7b3-43c5-b9bd-95ecbe3dc30c
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-0 | user=7f27391b-0a34-49d5-b578-345de2146a5b
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-26 | user=9a72fa1a-00ba-4a32-9d82-9ad838b6fda6
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-16 | user=c81789ed-4843-492a-b9fd-b691875be966
+2026-03-13 05:08:33 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-12 | user=6162e240-118c-458b-a342-b52abd4a4c6e
+2026-03-13 05:08:33 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-19 | user=6e0cff69-eb75-4d50-9d4d-dcc39a34b4b4
+2026-03-13 05:08:33 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-24 | user=a0f98131-5758-495a-ba93-d84e755eddc8
+2026-03-13 05:08:33 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-18 | user=c6f36c3e-fcde-4172-b16c-85f9c62af44c
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-2 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-10 | user=1300de81-0037-4ebc-9d93-b916445096d5
+2026-03-13 05:08:33 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-29 | user=4c4a9ed2-7c99-45b4-b644-f572b5282a50
+2026-03-13 05:08:33 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-25 | user=687cae65-7db0-40a8-b4df-4a5b57aa91a8
+2026-03-13 05:08:33 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-27 | user=6c722150-8c36-4bcc-b6a9-f41c938500fe
+2026-03-13 05:08:33 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-11 | user=cc7a4ed5-6326-4b43-a0be-a3ba5eaa3a08
+2026-03-13 05:08:33 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-22 | user=d43d096d-e8dd-417b-912c-9d97344f3e1f
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-5 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-21 | user=11bba67c-11ac-41f9-95b9-622addb856ac
+2026-03-13 05:08:33 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-28 | user=42b4e1af-cfb5-4445-89dc-b895c59ced1c
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-16 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-23 | user=954a1608-6325-4bba-a0b9-1d4f9d3d4a26
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-3 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-1 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-20 | user=373e78a2-8ac4-40f4-acb9-6dbec4d4818b
+2026-03-13 05:08:33 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-15 | user=d4eefa9f-26c6-48ac-9c85-0b2479377516
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-6 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-14 | user=4c90a59e-c419-4ebd-844a-b0d15c079bb0
+2026-03-13 05:08:33 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-9 | user=7a19cef9-e7e8-42bf-ae54-a43f2256975b
+2026-03-13 05:08:33 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-13 | user=3950517a-68ab-40bf-82b6-1ba88e12a551
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-4 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-8 | user=e7b3fda8-4bd5-440b-b171-671101ea642e
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-7 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-0 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-17 | user=cf9a3e02-39e2-4719-8b2c-62277a1624a9
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-26 | updated=true
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-2 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-2
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-2 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-16 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-16
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-16 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-11 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-12] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-11 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-3 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-3
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-3 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-6 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-6
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-6 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-12] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-11 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-12] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-11
+2026-03-13 05:08:33 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-22 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-23] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-22 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-23] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-22 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-23] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-22
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-7 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-28 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-29] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-28 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-29] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-28 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-29] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-28
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-0 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-0
+2026-03-13 05:08:33 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-24 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-25] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-24 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-7
+2026-03-13 05:08:33 [pool-4-thread-25] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-24 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-7 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-25] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-24
+2026-03-13 05:08:33 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-27 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-4 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-28] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-27 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-28] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-27 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-28] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-27
+2026-03-13 05:08:33 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-10 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-11] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-10 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-11] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-10 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-19 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-20] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-19 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-20] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-19 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-20] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-19
+2026-03-13 05:08:33 [pool-4-thread-11] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-10
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-26 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-26
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-26 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-1 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-1
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-1 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-5 | canProceed=true
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-5
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-5 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-23 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-24] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-23 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-24] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-23 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-24] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-23
+2026-03-13 05:08:33 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-29 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-30] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-29 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-30] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-29 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-30] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-29
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-4
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-4 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-25 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-26] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-25 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-26] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-25 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-26] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-25
+2026-03-13 05:08:33 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-18 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-19] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-18 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-19] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-18 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-19] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-18
+2026-03-13 05:08:33 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-21 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-22] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-21 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-22] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-21 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-22] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-21
+2026-03-13 05:08:33 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-15 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-16] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-15 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-16] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-15 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-16] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-15
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-0 | attempt=0
+2026-03-13 05:08:33 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-12 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-8 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-13] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-12 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-14 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-13] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-12 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-13] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-12
+2026-03-13 05:08:33 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-13 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-14] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-13 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-14] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-13 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-14] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-13
+2026-03-13 05:08:33 [pool-4-thread-9] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-8 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-9] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-8 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-9] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-8
+2026-03-13 05:08:33 [pool-4-thread-15] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-14 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-15] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-14 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-15] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-14
+2026-03-13 05:08:33 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-17 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-18] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-17 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-18] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-17 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-18] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-17
+2026-03-13 05:08:33 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-9 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-10] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-9 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-10] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-9 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-10] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-9
+2026-03-13 05:08:33 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-20 | updated=false
+2026-03-13 05:08:33 [pool-4-thread-21] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-20 | product=295d3422-b451-444c-8b2f-bf7f1cc1eb94
+2026-03-13 05:08:33 [pool-4-thread-21] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-20 error=Product is out of stock ( REDIS )
+2026-03-13 05:08:33 [pool-4-thread-21] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-20
+2026-03-13 05:08:33 [pool-4-thread-4] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-3 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=64f8a8d0-ec47-4802-a7eb-aa3d51b5aeff | redisKey=idempotency:key-7
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-3 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-7 orderId=64f8a8d0-ec47-4802-a7eb-aa3d51b5aeff
+2026-03-13 05:08:33 [pool-4-thread-8] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-7
+2026-03-13 05:08:33 [pool-4-thread-27] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-26 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-26 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-7] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-6 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-5] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-4 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-0 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-17] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-16 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-16 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-6] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-5 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-1 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-6 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-4 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-0 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-2 | attempt=1 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-2 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-5 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-1 | attempt=1
+2026-03-13 05:08:33 [pool-4-thread-7] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-6 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=f4a195cd-16ee-4b8b-9237-5d58a5d5efc1 | redisKey=idempotency:key-3
+2026-03-13 05:08:33 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-3 orderId=f4a195cd-16ee-4b8b-9237-5d58a5d5efc1
+2026-03-13 05:08:33 [pool-4-thread-4] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-3
+2026-03-13 05:08:33 [pool-4-thread-27] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-26 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-26 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-17] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-16 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-16 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=dc655125-46df-4a2b-baea-2b4f05ff156d | redisKey=idempotency:key-4
+2026-03-13 05:08:33 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-4 orderId=dc655125-46df-4a2b-baea-2b4f05ff156d
+2026-03-13 05:08:33 [pool-4-thread-5] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-4
+2026-03-13 05:08:33 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-0 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-0 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-6 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-2 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-6] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-5 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-2 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-1 | attempt=2 | exception=OptimisticLockException
+2026-03-13 05:08:33 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-1 | attempt=2
+2026-03-13 05:08:33 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-5 | attempt=2
+2026-03-13 05:08:34 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=3d1f4cfa-ae31-47a7-b879-c40692142f5c | redisKey=idempotency:key-26
+2026-03-13 05:08:34 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-26 orderId=3d1f4cfa-ae31-47a7-b879-c40692142f5c
+2026-03-13 05:08:34 [pool-4-thread-27] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-26
+2026-03-13 05:08:34 [pool-4-thread-17] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-16 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-16 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-2 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-2 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-7] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-6 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-6 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-6] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-5 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-5 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-0 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-0 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=4295e633-5be5-4972-a384-5e99a4ee739a | redisKey=idempotency:key-16
+2026-03-13 05:08:34 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-16 orderId=4295e633-5be5-4972-a384-5e99a4ee739a
+2026-03-13 05:08:34 [pool-4-thread-17] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-16
+2026-03-13 05:08:34 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-1 | attempt=3 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-1 | attempt=3
+2026-03-13 05:08:34 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-2 | attempt=4 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-2 | attempt=4
+2026-03-13 05:08:34 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-1 | attempt=4 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-1 | attempt=4
+2026-03-13 05:08:34 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-0 | attempt=4 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-0 | attempt=4
+2026-03-13 05:08:34 [pool-4-thread-7] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-6 | attempt=4 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - DB TRANSACTION START | redisKey=idempotency:key-6 | attempt=4
+2026-03-13 05:08:34 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=a1903b53-6a1c-4bf3-9808-bc18f551ac38 | redisKey=idempotency:key-5
+2026-03-13 05:08:34 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-5 orderId=a1903b53-6a1c-4bf3-9808-bc18f551ac38
+2026-03-13 05:08:34 [pool-4-thread-6] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-5
+2026-03-13 05:08:34 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-2 | attempt=5 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-3] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - MAX RETRIES REACHED | redisKey=idempotency:key-2 | deleting idempotency key
+2026-03-13 05:08:34 [pool-4-thread-3] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE FAILED | redisKey=idempotency:key-2 | restoring redis stock | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-3] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-2 error=Unexpected row count (expected row count 1 but was 0) [update product set created_at=?,product_name=?,product_price=?,product_stock=?,version=? where product_id=? and version=?] for entity [com.shivansh.InventoryEngine.domain.entity.Product with id '295d3422-b451-444c-8b2f-bf7f1cc1eb94']
+2026-03-13 05:08:34 [pool-4-thread-3] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-2
+2026-03-13 05:08:34 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-0 | attempt=5 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-1] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - MAX RETRIES REACHED | redisKey=idempotency:key-0 | deleting idempotency key
+2026-03-13 05:08:34 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=52747ae8-2cf2-4d85-a360-2ead15014963 | redisKey=idempotency:key-6
+2026-03-13 05:08:34 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS idemKey=key-6 orderId=52747ae8-2cf2-4d85-a360-2ead15014963
+2026-03-13 05:08:34 [pool-4-thread-7] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-6
+2026-03-13 05:08:34 [pool-4-thread-1] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE FAILED | redisKey=idempotency:key-0 | restoring redis stock | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - OPTIMISTIC LOCK RETRY | redisKey=idempotency:key-1 | attempt=5 | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-2] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - MAX RETRIES REACHED | redisKey=idempotency:key-1 | deleting idempotency key
+2026-03-13 05:08:34 [pool-4-thread-1] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-0 error=Unexpected row count (expected row count 1 but was 0) [update product set created_at=?,product_name=?,product_price=?,product_stock=?,version=? where product_id=? and version=?] for entity [com.shivansh.InventoryEngine.domain.entity.Product with id '295d3422-b451-444c-8b2f-bf7f1cc1eb94']
+2026-03-13 05:08:34 [pool-4-thread-1] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-0
+2026-03-13 05:08:34 [pool-4-thread-2] ERROR com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE FAILED | redisKey=idempotency:key-1 | restoring redis stock | exception=OptimisticLockException
+2026-03-13 05:08:34 [pool-4-thread-2] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED idemKey=key-1 error=Unexpected row count (expected row count 1 but was 0) [update product set created_at=?,product_name=?,product_price=?,product_stock=?,version=? where product_id=? and version=?] for entity [com.shivansh.InventoryEngine.domain.entity.Product with id '295d3422-b451-444c-8b2f-bf7f1cc1eb94']
+2026-03-13 05:08:34 [pool-4-thread-2] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END idemKey=key-1
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - FETCHING ORDERS FROM DATABASE
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - ===== ORDER SUMMARY =====
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Completed orders = 7
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Failed orders = 0
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Pending orders = 0
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Final stock = 3
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Expected stock = 3
+2026-03-13 05:08:39 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest]: ConcurrentIdempotencyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:08:39 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Starting ConcurrentIdempotencyTest using Java 21.0.10 with PID 95443 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:08:39 [main] DEBUG com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:08:39 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:08:40 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:08:40 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:08:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-03-13 05:08:40 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1e5259c0
+2026-03-13 05:08:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-03-13 05:08:40 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:08:40 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:08:40 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:40 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:08:43 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Started ConcurrentIdempotencyTest in 3.853 seconds (process running for 31.614)
+2026-03-13 05:08:43 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.RateLimitTest]: RateLimitTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:08:43 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.RateLimitTest
+2026-03-13 05:08:43 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.PurchaseConcurrenyTest]: PurchaseConcurrenyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:08:43 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.PurchaseConcurrenyTest
+2026-03-13 05:08:43 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.InventoryEngineApplicationTests]: InventoryEngineApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:08:43 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.InventoryEngineApplicationTests
+2026-03-13 05:08:43 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-03-13 05:08:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-03-13 05:08:43 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Starting InventoryEngineApplicationTests using Java 21.0.10 with PID 95443 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:08:43 [main] DEBUG com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:08:43 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:08:43 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:08:44 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:08:44 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:08:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-03-13 05:08:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@41f53068
+2026-03-13 05:08:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-03-13 05:08:44 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:08:44 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:08:44 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:44 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:08:44 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Started InventoryEngineApplicationTests in 1.114 seconds (process running for 32.977)
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2026-03-13 05:08:44 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2026-03-13 05:58:38 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-03-13 05:58:38 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Starting PurchaseAsyncFlowTest using Java 21.0.10 with PID 123967 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:58:38 [main] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:58:38 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:58:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:58:39 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1234 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:41 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:58:41 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:58:42 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-03-13 05:58:42 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:58:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-13 05:58:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6e337ba1
+2026-03-13 05:58:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-13 05:58:44 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:58:45 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:58:45 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:58:45 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-13 05:58:48 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:58:50 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Started PurchaseAsyncFlowTest in 12.809 seconds (process running for 17.182)
+2026-03-13 05:58:51 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - ===== TEST START =====
+2026-03-13 05:58:53 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PRODUCT CREATED | productId=b6111982-dc71-4425-9087-dc6271cdc1c2 | initialStock=10
+2026-03-13 05:58:53 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - STARTING CONCURRENCY TEST | threads=30
+2026-03-13 05:58:53 [pool-4-thread-1] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-0
+2026-03-13 05:58:53 [pool-4-thread-2] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-1
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-0 | user=ca06bab4-937c-4c6e-b429-098d4841fd1f | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-4] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-3
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-3 | user=36bb065f-50bf-40fd-b5d2-2a5861b9fc85 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-3] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-2
+2026-03-13 05:58:53 [pool-4-thread-7] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-6
+2026-03-13 05:58:53 [pool-4-thread-6] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-5
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-5 | user=f396b84b-ba10-485e-8f79-f3984706c4ab | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-5] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-4
+2026-03-13 05:58:53 [pool-4-thread-8] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-7
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-4 | user=73e625a8-d347-44f7-bd7b-7c33b4c2fd75 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-7 | user=4612ffe0-25c8-41c5-9f01-e2f30453475f | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-6 | user=2ffb3733-9ca4-4712-96c6-4cb047e0b3d8 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-9] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-8
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-1 | user=3bbf0dc8-2c14-4da4-abd5-24095c1f9fb1 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-2 | user=37de6569-0466-4a87-a81b-5ef955f54a00 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-8 | user=00430161-2de2-447c-842f-f0d74d5c91e5 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-10] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-9
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-9 | user=efaa7ded-6638-4223-874f-6d2ac925fc5f | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-11] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-10
+2026-03-13 05:58:53 [pool-4-thread-12] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-11
+2026-03-13 05:58:53 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-10 | user=cf87e4cb-5316-4f09-9b9c-5d619cdd9f48 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-16] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-15
+2026-03-13 05:58:53 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-15 | user=0f97e93f-187f-4b41-b889-1b7a60b5664b | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-14] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-13
+2026-03-13 05:58:53 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-13 | user=7e55acef-1fb9-4fae-8964-adeff00eed45 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-19] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-18
+2026-03-13 05:58:53 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-18 | user=7e16f123-ae68-40f4-bfec-745b991e9f86 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-17] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-16
+2026-03-13 05:58:53 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-16 | user=2d0a66ff-b85d-4a27-8d32-3ef8c942ea1a | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-27] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-26
+2026-03-13 05:58:53 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-26 | user=94544fa4-ffb4-492e-bbad-1acd8a37fde9 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-20] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-19
+2026-03-13 05:58:53 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-19 | user=397e052a-1533-4054-8c6d-f4b669c8b293 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-28] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-27
+2026-03-13 05:58:53 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-27 | user=ffe1b322-c623-4bf1-9ba9-9a80521c3a74 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-21] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-20
+2026-03-13 05:58:53 [pool-4-thread-22] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-21
+2026-03-13 05:58:53 [pool-4-thread-13] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-12
+2026-03-13 05:58:53 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-12 | user=439df980-aeb7-46cc-9112-509b63d32eb8 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-23] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-22
+2026-03-13 05:58:53 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-22 | user=ab454634-1ec8-48b2-bba2-3bac29800504 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-24] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-23
+2026-03-13 05:58:53 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-23 | user=1b8ef226-24c1-4063-ab80-1585a888a05d | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-21 | user=c2016a2a-9592-43ce-a4df-966d42dbf10e | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-11 | user=e14e1c92-31df-4e73-acdf-0491e98a2a2d | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-18] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-17
+2026-03-13 05:58:53 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-17 | user=92d2b2cb-fd8e-4773-9217-3979759d70ee | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-15] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-14
+2026-03-13 05:58:53 [pool-4-thread-26] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-25
+2026-03-13 05:58:53 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-14 | user=423b3d43-34bf-4525-b5a6-361ea46795f5 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-25 | user=18242ec8-e5e6-4ae5-8429-efa7a1f612ff | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-30] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-29
+2026-03-13 05:58:53 [pool-4-thread-29] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-28
+2026-03-13 05:58:53 [pool-4-thread-25] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD START | idemKey=key-24
+2026-03-13 05:58:53 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-24 | user=6d46c629-3266-4aef-b83c-66148d4e0758 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-20 | user=51686190-1840-42ea-a4f3-d03f8b819af4 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-28 | user=1078254e-e78b-4a31-9aed-6d04b6f03dc6 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REQ START | idemKey=key-29 | user=64fc4d54-ed41-49cf-8eae-d5decca05ac7 | product=b6111982-dc71-4425-9087-dc6271cdc1c2 | qty=1
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-1 | user=3bbf0dc8-2c14-4da4-abd5-24095c1f9fb1
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-6 | user=2ffb3733-9ca4-4712-96c6-4cb047e0b3d8
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-8 | user=00430161-2de2-447c-842f-f0d74d5c91e5
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-4 | user=73e625a8-d347-44f7-bd7b-7c33b4c2fd75
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-5 | user=f396b84b-ba10-485e-8f79-f3984706c4ab
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-3 | user=36bb065f-50bf-40fd-b5d2-2a5861b9fc85
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-0 | user=ca06bab4-937c-4c6e-b429-098d4841fd1f
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-9 | user=efaa7ded-6638-4223-874f-6d2ac925fc5f
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-2 | user=37de6569-0466-4a87-a81b-5ef955f54a00
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-7 | user=4612ffe0-25c8-41c5-9f01-e2f30453475f
+2026-03-13 05:58:53 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-10 | user=cf87e4cb-5316-4f09-9b9c-5d619cdd9f48
+2026-03-13 05:58:53 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-16 | user=2d0a66ff-b85d-4a27-8d32-3ef8c942ea1a
+2026-03-13 05:58:53 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-17 | user=92d2b2cb-fd8e-4773-9217-3979759d70ee
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-0 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-27 | user=ffe1b322-c623-4bf1-9ba9-9a80521c3a74
+2026-03-13 05:58:53 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-18 | user=7e16f123-ae68-40f4-bfec-745b991e9f86
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-2 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-7 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-9 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-6 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-14 | user=423b3d43-34bf-4525-b5a6-361ea46795f5
+2026-03-13 05:58:53 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-13 | user=7e55acef-1fb9-4fae-8964-adeff00eed45
+2026-03-13 05:58:53 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-26 | user=94544fa4-ffb4-492e-bbad-1acd8a37fde9
+2026-03-13 05:58:53 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-19 | user=397e052a-1533-4054-8c6d-f4b669c8b293
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-1 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-15 | user=0f97e93f-187f-4b41-b889-1b7a60b5664b
+2026-03-13 05:58:53 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-21 | user=c2016a2a-9592-43ce-a4df-966d42dbf10e
+2026-03-13 05:58:53 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-11 | user=e14e1c92-31df-4e73-acdf-0491e98a2a2d
+2026-03-13 05:58:53 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-22 | user=ab454634-1ec8-48b2-bba2-3bac29800504
+2026-03-13 05:58:53 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-12 | user=439df980-aeb7-46cc-9112-509b63d32eb8
+2026-03-13 05:58:53 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-23 | user=1b8ef226-24c1-4063-ab80-1585a888a05d
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-8 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-20 | user=51686190-1840-42ea-a4f3-d03f8b819af4
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-4 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-28 | user=1078254e-e78b-4a31-9aed-6d04b6f03dc6
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-3 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-25 | user=18242ec8-e5e6-4ae5-8429-efa7a1f612ff
+2026-03-13 05:58:53 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-29 | user=64fc4d54-ed41-49cf-8eae-d5decca05ac7
+2026-03-13 05:58:53 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - RATE LIMIT OK | idemKey=key-24 | user=6d46c629-3266-4aef-b83c-66148d4e0758
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-5 | updated=true
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-7 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-0 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-0
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-2 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-2
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-7
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-6 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-6
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-9 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-9
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-1 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-1
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-8 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-8
+2026-03-13 05:58:53 [pool-4-thread-11] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-10 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-3 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-3
+2026-03-13 05:58:53 [pool-4-thread-20] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-19 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-20] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-19 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-20] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-19 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-15] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-14 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-20] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-19
+2026-03-13 05:58:53 [pool-4-thread-15] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-14 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-15] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-14 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-15] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-14
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-4 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-4
+2026-03-13 05:58:53 [pool-4-thread-17] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-16 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-17] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-16 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-17] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-16 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-17] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-16
+2026-03-13 05:58:53 [pool-4-thread-19] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-18 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-19] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-18 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-19] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-18 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-13] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-12 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-19] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-18
+2026-03-13 05:58:53 [pool-4-thread-13] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-12 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-13] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-12 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-13] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-12
+2026-03-13 05:58:53 [pool-4-thread-28] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-27 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-28] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-27 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-28] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-27 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-28] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-27
+2026-03-13 05:58:53 [pool-4-thread-16] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-15 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-23] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-22 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-16] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-15 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-23] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-22 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-16] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-15 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-23] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-22 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-16] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-15
+2026-03-13 05:58:53 [pool-4-thread-23] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-22
+2026-03-13 05:58:53 [pool-4-thread-22] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-21 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-22] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-21 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-22] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-21 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-22] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-21
+2026-03-13 05:58:53 [pool-4-thread-12] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-11 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY TRY | redisKey=idempotency:key-5 | canProceed=true
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - IDEMPOTENCY LOCK ACQUIRED | redisKey=idempotency:key-5
+2026-03-13 05:58:53 [pool-4-thread-18] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-17 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-18] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-17 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-18] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-17 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-18] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-17
+2026-03-13 05:58:53 [pool-4-thread-14] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-13 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-14] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-13 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-14] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-13 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-14] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-13
+2026-03-13 05:58:53 [pool-4-thread-11] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-10 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-11] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-10 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-11] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-10
+2026-03-13 05:58:53 [pool-4-thread-27] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-26 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-27] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-26 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-27] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-26 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-27] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-26
+2026-03-13 05:58:53 [pool-4-thread-12] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-11 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-12] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-11 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-12] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-11
+2026-03-13 05:58:53 [pool-4-thread-24] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-23 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-24] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-23 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-24] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-23 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-24] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-23
+2026-03-13 05:58:53 [pool-4-thread-30] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-29 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-30] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-29 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-30] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-29 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-30] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-29
+2026-03-13 05:58:53 [pool-4-thread-25] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-24 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-29] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-28 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-29] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-28 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-29] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-28 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-29] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-28
+2026-03-13 05:58:53 [pool-4-thread-26] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-25 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-26] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-25 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-26] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-25 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-26] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-25
+2026-03-13 05:58:53 [pool-4-thread-25] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-24 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-25] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-24 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-25] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-24
+2026-03-13 05:58:53 [pool-4-thread-21] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK RESULT | idemKey=key-20 | updated=false
+2026-03-13 05:58:53 [pool-4-thread-21] WARN  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - REDIS STOCK FAILED | idemKey=key-20 | product=b6111982-dc71-4425-9087-dc6271cdc1c2
+2026-03-13 05:58:53 [pool-4-thread-21] WARN  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE FAILED | idemKey=key-20 | error=Product is out of stock ( REDIS )
+2026-03-13 05:58:53 [pool-4-thread-21] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-20
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=2ac10075-011c-49e2-86a9-e3683fa7760e | redisKey=idempotency:key-9
+2026-03-13 05:58:53 [pool-4-thread-10] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-9 | orderId=2ac10075-011c-49e2-86a9-e3683fa7760e
+2026-03-13 05:58:53 [pool-4-thread-10] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-9
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=3cb97fec-a4b0-41b9-adf4-64e78fb41162 | redisKey=idempotency:key-1
+2026-03-13 05:58:53 [pool-4-thread-2] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-1 | orderId=3cb97fec-a4b0-41b9-adf4-64e78fb41162
+2026-03-13 05:58:53 [pool-4-thread-2] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-1
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=20d5ac6a-0d90-4765-a578-dd9ce191e9f2 | redisKey=idempotency:key-6
+2026-03-13 05:58:53 [pool-4-thread-7] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-6 | orderId=20d5ac6a-0d90-4765-a578-dd9ce191e9f2
+2026-03-13 05:58:53 [pool-4-thread-7] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-6
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=1fc4f7ec-3c75-42c7-a2ce-404a69f63881 | redisKey=idempotency:key-7
+2026-03-13 05:58:53 [pool-4-thread-8] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-7 | orderId=1fc4f7ec-3c75-42c7-a2ce-404a69f63881
+2026-03-13 05:58:53 [pool-4-thread-8] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-7
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=3885b340-251b-4328-8c90-b8d2c411c4e6 | redisKey=idempotency:key-3
+2026-03-13 05:58:53 [pool-4-thread-4] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-3 | orderId=3885b340-251b-4328-8c90-b8d2c411c4e6
+2026-03-13 05:58:53 [pool-4-thread-4] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-3
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=f9607bb7-6e66-44a8-aecf-d4f459207975 | redisKey=idempotency:key-5
+2026-03-13 05:58:53 [pool-4-thread-6] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-5 | orderId=f9607bb7-6e66-44a8-aecf-d4f459207975
+2026-03-13 05:58:53 [pool-4-thread-6] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-5
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=38af4da1-2974-41c1-8728-4bb45b2bec75 | redisKey=idempotency:key-4
+2026-03-13 05:58:53 [pool-4-thread-5] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-4 | orderId=38af4da1-2974-41c1-8728-4bb45b2bec75
+2026-03-13 05:58:53 [pool-4-thread-5] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-4
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=3a6bb01a-ba4b-4b4f-a455-0ee20c04fded | redisKey=idempotency:key-2
+2026-03-13 05:58:53 [pool-4-thread-3] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-2 | orderId=3a6bb01a-ba4b-4b4f-a455-0ee20c04fded
+2026-03-13 05:58:53 [pool-4-thread-3] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-2
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=73639e5b-6dad-43f6-bce4-bdb07654ba1c | redisKey=idempotency:key-0
+2026-03-13 05:58:53 [pool-4-thread-1] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-0 | orderId=73639e5b-6dad-43f6-bce4-bdb07654ba1c
+2026-03-13 05:58:53 [pool-4-thread-1] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-0
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.service.impl.PurchaseServiceImpl - PURCHASE SUCCESS | orderId=be3821a9-fbb1-4b9e-a459-c1aa4174daee | redisKey=idempotency:key-8
+2026-03-13 05:58:53 [pool-4-thread-9] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - PURCHASE SUCCESS | idemKey=key-8 | orderId=be3821a9-fbb1-4b9e-a459-c1aa4174daee
+2026-03-13 05:58:53 [pool-4-thread-9] DEBUG com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - THREAD END | idemKey=key-8
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - FETCHING ORDERS FROM DATABASE
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - ===== ORDER SUMMARY =====
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Completed orders = 6
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Failed orders = 4
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Pending orders = 0
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Final stock = 4
+2026-03-13 05:58:58 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.PurchaseAsyncFlowTest - Expected stock = 4
+2026-03-13 05:58:58 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest]: ConcurrentIdempotencyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:58:58 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest
+2026-03-13 05:58:59 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Starting ConcurrentIdempotencyTest using Java 21.0.10 with PID 123967 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:58:59 [main] DEBUG com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:58:59 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:58:59 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:58:59 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:58:59 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:58:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-03-13 05:58:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1d9ad64f
+2026-03-13 05:58:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-03-13 05:58:59 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:58:59 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:58:59 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:58:59 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:59:00 [main] INFO  com.shivansh.InventoryEngine.IntegrationTest.ConcurrentIdempotencyTest - Started ConcurrentIdempotencyTest in 1.053 seconds (process running for 26.445)
+2026-03-13 05:59:00 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.RateLimitTest]: RateLimitTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:59:00 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.RateLimitTest
+2026-03-13 05:59:00 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.IntegrationTest.PurchaseConcurrenyTest]: PurchaseConcurrenyTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:59:00 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.IntegrationTest.PurchaseConcurrenyTest
+2026-03-13 05:59:00 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.shivansh.InventoryEngine.InventoryEngineApplicationTests]: InventoryEngineApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-13 05:59:00 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.shivansh.InventoryEngine.InventoryEngineApplication for test class com.shivansh.InventoryEngine.InventoryEngineApplicationTests
+2026-03-13 05:59:00 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-03-13 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-03-13 05:59:00 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Starting InventoryEngineApplicationTests using Java 21.0.10 with PID 123967 (started by Shivansh_911 in /home/Shivansh_911/WEB_DEV/InventoryEngine)
+2026-03-13 05:59:00 [main] DEBUG com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Running with Spring Boot v4.0.3, Spring v7.0.5
+2026-03-13 05:59:00 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OrderRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.OutboxRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.shivansh.InventoryEngine.repository.ProductRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-03-13 05:59:00 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-03-13 05:59:00 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-13 05:59:00 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-13 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-03-13 05:59:00 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@715c680a
+2026-03-13 05:59:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-03-13 05:59:00 [main] INFO  org.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/inventory]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.2
+	Default catalog/schema: inventory/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-13 05:59:00 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-13 05:59:00 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:59:00 [main] WARN  org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-13 05:59:01 [main] INFO  com.shivansh.InventoryEngine.InventoryEngineApplicationTests - Started InventoryEngineApplicationTests in 1.552 seconds (process running for 28.205)
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2026-03-13 05:59:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.

@@ -8,6 +8,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,65 +45,86 @@ public class PurchaseAsyncFlowTest {
 
     @Autowired
     OutboxProcessor outboxProcessor;
+
+    private static final Logger log = LogManager.getLogger(PurchaseAsyncFlowTest.class);
     
     @Test
     public void async_flow_test() throws Exception {
 
-        // System.out.println("START OF THE TEST");
+        log.info("===== TEST START =====");
 
-        // UUID productId = productService.createProduct("Samosa", 10, 20);
+        UUID productId = productService.createProduct("Samosa", 10, 20);
 
-        // int threads = 30;
+        log.info("PRODUCT CREATED | productId={} | initialStock={}", productId, 10);
 
-        // ExecutorService executor = Executors.newFixedThreadPool(threads);
-        // CountDownLatch latch = new CountDownLatch(threads);
+        int threads = 30;
 
-        // for(int i=0;i<threads;i++) {
-        //     int idx = i;
+        log.info("STARTING CONCURRENCY TEST | threads={}", threads);
 
-        //     executor.submit(() -> {
-        //         try {
+        ExecutorService executor = Executors.newFixedThreadPool(threads);
+        CountDownLatch latch = new CountDownLatch(threads);
+
+        for(int i=0;i<threads;i++) {
+            int idx = i;
+
+            executor.submit(() -> {
+
+                log.debug("THREAD START | idemKey={}", "key-"+idx);
+
+                try {
                     
-        //             purchaseService.purchase(UUID.randomUUID(), productId, 1, "key-"+idx);
+                    UUID orderId = purchaseService.purchasePessimistic(UUID.randomUUID(), productId, 1, "key-"+idx);
 
-        //         } catch (Exception ignored) {
-        //         } finally {
-        //             latch.countDown();
-        //         }
-        //     });
-        // }
+                    log.info("PURCHASE SUCCESS | idemKey={} | orderId={}", "key-"+idx, orderId);
 
-        // latch.await();
+                } catch (Exception ex) {
 
-        // executor.shutdown();
+                    log.warn("PURCHASE FAILED | idemKey={} | error={}", "key-"+idx, ex.getMessage());
+                
+                } finally {
+                    
+                    latch.countDown();
+                    log.debug("THREAD END | idemKey={}", "key-"+idx);
+                }
+            });
+        }
 
-        // Thread.sleep(5000);
+        latch.await();
 
-        // List<Order> orders = orderRepository.findAll();
+        executor.shutdown();
 
-        // int completed = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.COMPLETED).count();
+        Thread.sleep(5000);
+
+        log.info("FETCHING ORDERS FROM DATABASE");
+
+
+        List<Order> orders = orderRepository.findAll();
+
+        int completed = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.COMPLETED).count();
         
-        // int failed = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.FAILED).count();
+        int failed = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.FAILED).count();
 
-        // int pending = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.PENDING).count();
+        int pending = (int)orders.stream().filter(o -> o.getStatus() == OrderStatus.PENDING).count();
 
 
-        // Product product = productRepository.findById(productId).orElseThrow();
+        Product product = productRepository.findById(productId).orElseThrow();
 
-        // int final_stock = product.getStock();
+        int final_stock = product.getStock();
 
-        // int expected_stock = 10 - completed;
+        int expected_stock = 10 - completed;
 
-        // assertThat(final_stock).isEqualTo(expected_stock);
+        log.info("===== ORDER SUMMARY =====");
+        log.info("Completed orders = {}", completed);
+        log.info("Failed orders = {}", failed);
+        log.info("Pending orders = {}", pending);
+        log.info("Final stock = {}", final_stock);
+        log.info("Expected stock = {}", expected_stock);
 
-        // assertThat(final_stock).isGreaterThanOrEqualTo(0);
+        assertThat(final_stock).isEqualTo(expected_stock);
 
-        // assertThat(completed + failed).isEqualTo(orders.size());
+        assertThat(final_stock).isGreaterThanOrEqualTo(0);
 
-        // System.out.println("Completed: " + completed);
-        // System.out.println("Failed: " + failed);
-        // System.out.println("Pending: " + pending);
-        // System.out.println("Final stock: " + final_stock);
+        assertThat(completed + failed).isEqualTo(orders.size());
 
 
         // // outboxProcessor.process();

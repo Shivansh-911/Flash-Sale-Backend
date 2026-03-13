@@ -27,17 +27,18 @@ public class IdempotencyServiceImpl implements IdempotencyService {
     public boolean tryStart(String key) {
         
         Boolean success = redis.opsForValue().setIfAbsent(key, "processing", TTL);
-
         return Boolean.TRUE.equals(success);
         
     }
 
+
     // After processing the request, set the key with the orderId as value and TTL to prevent memory leak in Redis
     @Override
-    public void copmplete(String key,UUID orderId) {
+    public void complete(String key,UUID orderId) {
         
         redis.opsForValue().set(key, orderId.toString(), TTL);
     }
+
 
     @Override
     public String get(String key) {

@@ -19,14 +19,14 @@ public class InventoryCacheServiceImpl implements InventoryCacheService {
     @Override
     public void initializeStock(UUID productId, int stock) {
         
-        String redisKey = "stock"+ productId.toString();
+        String redisKey = "stock:"+ productId.toString();
         redis.opsForValue().set(redisKey, String.valueOf(stock));
     }
 
     @Override
     public boolean tryUpdateStock(UUID productId, int quantity) {
         
-        String redisKey = "stock"+ productId.toString();
+        String redisKey = "stock:"+ productId.toString();
 
         Long remainingStock = redis.opsForValue().decrement(redisKey, quantity);
 
@@ -46,7 +46,7 @@ public class InventoryCacheServiceImpl implements InventoryCacheService {
     @Override
     public void restoreStock(UUID productId, int quantity) {
         
-        String redisKey = "stock"+ productId.toString();
+        String redisKey = "stock:"+ productId.toString();
         redis.opsForValue().increment(redisKey, quantity);
     }
     

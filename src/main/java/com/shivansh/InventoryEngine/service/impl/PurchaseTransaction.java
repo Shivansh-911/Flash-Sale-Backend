@@ -101,9 +101,59 @@ public class PurchaseTransaction {
         // Multiple threads insert orders before version conflict is detected.
         // This is a classic flush timing bug.
 
-        System.out.println("Purchase Successfull "+order.getQuantity()+" Version "+product.getVersion());
 
         return order.getId();
+    }
+
+
+    @Transactional
+    public UUID purchaseTxPessimistic(UUID userId, UUID productId, int qty, String idemKey) {
+        
+        var existing = orderRepository.findByIdempotencyKey(idemKey);
+        if (existing.isPresent()) {
+            return existing.get().getId();
+        }
+
+        Product product = productRepository.findById(productId).orElseThrow();
+
+        if (product.getStock() < qty) {
+            throw new RuntimeException("Out of stock");
+        }
+
+        // PESSIMISTIC LOCKING
+        // In pessimistic locking, the stock is decremented directly in the database using a custom query with a WHERE clause that checks for sufficient stock. 
+        // If the update affects 0 rows, it means another transaction has already decremented 
+        // if answer 1 then sufficient , if 0 then insufficient stock or concurrent update 
+
+        int updatedRows = productRepository.decrementStock(productId, qty);
+        
+        if (updatedRows == 0) {
+            throw new RuntimeException("Out of stock");
+        }
+
+        Order order = Order.builder()
+                .userId(userId)
+                .productId(productId)
+                .quantity(qty)
+                .status(OrderStatus.PENDING)
+                .idempotencyKey(idemKey)
+                .build();
+
+        orderRepository.save(order);
+
+        OutboxEvent event = OutboxEvent.builder()
+                                        .aggregateType("ORDER")
+                                        .aggregateId(order.getId())
+                                        .type("ORDER_CREATED")
+                                        .payload(order.getId().toString())
+                                        .processed(false)
+                                        .createdAt(Instant.now())
+                                        .build();
+
+        outboxRepository.save(event); 
+
+        return order.getId();
+
     }
 
 }

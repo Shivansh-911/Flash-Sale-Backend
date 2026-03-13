@@ -6,7 +6,7 @@ public interface IdempotencyService {
 
     public boolean tryStart(String key);
 
-    public void copmplete(String key, UUID orderId);
+    public void complete(String key, UUID orderId);
 
     public String get(String key);
 
