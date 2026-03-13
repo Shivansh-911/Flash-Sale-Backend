@@ -154,15 +154,6 @@ public class PurchaseServiceImpl implements PurchaseService {
         rateLimiterService.checkRateLimit(userId);
         log.info("RATE LIMIT OK | idemKey={} | user={}", idemKey, userId);
 
-        //Stock check and update in Redis
-        boolean stockUpdates = inventoryCacheService.tryUpdateStock(productId, qty);
-        log.info("REDIS STOCK RESULT | idemKey={} | updated={}", idemKey, stockUpdates);
-
-        if(!stockUpdates) {
-            log.warn("REDIS STOCK FAILED | idemKey={} | product={}", idemKey, productId);
-            throw new RuntimeException("Product is out of stock ( REDIS )");
-        }
-
         // Idempotency check
         String redisKey = "idempotency:" + idemKey;
         boolean canProceed = idempotencyService.tryStart(redisKey);
@@ -182,6 +173,15 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         }
         log.info("IDEMPOTENCY LOCK ACQUIRED | redisKey={}", redisKey);
+
+        //Stock check and update in Redis
+        boolean stockUpdates = inventoryCacheService.tryUpdateStock(productId, qty);
+        log.info("REDIS STOCK RESULT | idemKey={} | updated={}", idemKey, stockUpdates);
+
+        if(!stockUpdates) {
+            log.warn("REDIS STOCK FAILED | idemKey={} | product={}", idemKey, productId);
+            throw new RuntimeException("Product is out of stock ( REDIS )");
+        }
 
 
 

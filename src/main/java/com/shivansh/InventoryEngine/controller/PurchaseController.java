@@ -6,10 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shivansh.InventoryEngine.domain.dto.PurchaseRequest;
 import com.shivansh.InventoryEngine.service.PurchaseService;
 
+import jakarta.validation.Valid;
+
 import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+
+//@RequestBody controller will convert json to java object 
+//It uses Sptring boot MappingJackson2HttpMessageConverter to convert json to java object.
+//@ResponseEntity is used to return response with status code and body. It is a good practice to use ResponseEntity in controller methods.
+//It converts java object to json 
 
 
 @RestController
@@ -24,14 +33,20 @@ public class PurchaseController {
     }
 
     @PostMapping("/")
-    public UUID purchase(@RequestBody PurchaseRequest req) {
+    public ResponseEntity<UUID> purchase(@Valid @RequestBody PurchaseRequest req) {
 
-        return purchaseService.purchase(
+        UUID orderId = purchaseService.purchasePessimistic(
             req.userId(),
             req.productId(),
             req.quantity(),
             req.idempotencyKey()
         );
+
+        if(orderId == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(orderId);
     
     }
     
